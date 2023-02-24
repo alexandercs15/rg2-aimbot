@@ -34,7 +34,7 @@ FOVCircle.Thickness = _G.CircleThickness
 
 local function getclosestplayer()
     local MaximumDistance = _G.CircleRadius
-    local Target = nil
+    local Target = closestplayer
 
     for _, v in next, Players:GetPlayers() do
         if v.name ~= LocalPlayer.Name then
@@ -100,5 +100,4 @@ RunService.RenderStepped:Connect(function()
         TweenService:Create(Camera, TweenInfo.new(_G.Sensitivity, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame = CFrame.new(Camera.CFrame.Position, getclosestplayer().Character[_G.AimPart].Position)}):Play()
     end
 end)
-
 
